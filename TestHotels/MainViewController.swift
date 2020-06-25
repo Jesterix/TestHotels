@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     var mainView: MainView!
     var hotels: [String] = ["1", "2", "3", "4"]

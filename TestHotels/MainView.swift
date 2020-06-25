@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainView: UIView {
+final class MainView: UIView {
     var titleLable: UILabel!
     var sortedLabel: UILabel!
     var switchControl: UISwitch!
