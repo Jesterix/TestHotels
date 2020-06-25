@@ -10,10 +10,16 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var mainView: MainView!
+
+    override func loadView() {
+        mainView = MainView()
+        self.view = mainView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .orange
     }
 
 
