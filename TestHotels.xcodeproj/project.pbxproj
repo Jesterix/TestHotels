@@ -15,6 +15,7 @@
 		4488EC8D24A4CC0100B73349 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4488EC8C24A4CC0100B73349 /* SnapKit */; };
 		4488EC8F24A4CD3800B73349 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC8E24A4CD3800B73349 /* MainView.swift */; };
 		4488EC9124A4CF4A00B73349 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC9024A4CF4A00B73349 /* UIView+SnapKit.swift */; };
+		4488EC9324A4D1D000B73349 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC9224A4D1D000B73349 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		4488EC8524A4C03600B73349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4488EC8E24A4CD3800B73349 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4488EC9024A4CF4A00B73349 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
+		4488EC9224A4D1D000B73349 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				4488EC7924A4C03400B73349 /* SceneDelegate.swift */,
 				4488EC7B24A4C03400B73349 /* MainViewController.swift */,
 				4488EC8E24A4CD3800B73349 /* MainView.swift */,
+				4488EC9224A4D1D000B73349 /* Extensions.swift */,
 				4488EC9024A4CF4A00B73349 /* UIView+SnapKit.swift */,
 				4488EC8024A4C03600B73349 /* Assets.xcassets */,
 				4488EC8224A4C03600B73349 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4488EC7C24A4C03400B73349 /* MainViewController.swift in Sources */,
+				4488EC9324A4D1D000B73349 /* Extensions.swift in Sources */,
 				4488EC8F24A4CD3800B73349 /* MainView.swift in Sources */,
 				4488EC7824A4C03400B73349 /* AppDelegate.swift in Sources */,
 				4488EC7A24A4C03400B73349 /* SceneDelegate.swift in Sources */,

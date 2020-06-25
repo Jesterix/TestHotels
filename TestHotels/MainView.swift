@@ -9,6 +9,13 @@
 import UIKit
 
 class MainView: UIView {
+    var titleLable: UILabel!
+    var sortedLabel: UILabel!
+    var switchControl: UISwitch!
+    var switchLeftLabel: UILabel!
+    var switchRightLabel: UILabel!
+//    var tableView: UITableView!
+
     init() {
         super.init(frame: .zero)
         layoutContent(in: self)
@@ -20,10 +27,41 @@ class MainView: UIView {
     }
 
     private func layoutContent(in view: UIView) {
+        titleLable = layout(UILabel(text: "Hotel List"))
+        { make in
+            make.top.equalTo(safeArea).offset(20)
+            make.centerX.equalToSuperview()
+        }
 
+        sortedLabel = layout(UILabel(text: "sorted by:"))
+        { make in
+            make.top.equalTo(titleLable.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
+
+        switchControl = layout(UISwitch())
+        { make in
+            make.top.equalTo(sortedLabel.bottom).offset(10)
+            make.centerX.equalToSuperview()
+        }
+
+        switchLeftLabel = layout(UILabel(text: "distance"))
+        { make in
+            make.centerY.equalTo(switchControl)
+            make.trailing.equalTo(switchControl.leading).offset(-10)
+        }
+
+        switchRightLabel = layout(UILabel(text: "free rooms"))
+        { make in
+            make.centerY.equalTo(switchControl)
+            make.leading.equalTo(switchControl.trailing).offset(10)
+        }
     }
 
     private func applyStyle() {
-        backgroundColor = .orange
+        backgroundColor = .white
+        sortedLabel.font = .systemFont(ofSize: 13)
+        switchLeftLabel.font = .systemFont(ofSize: 13)
+        switchRightLabel.font = .systemFont(ofSize: 13)
     }
 }
