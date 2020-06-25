@@ -3,22 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4488EC7824A4C03400B73349 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC7724A4C03400B73349 /* AppDelegate.swift */; };
 		4488EC7A24A4C03400B73349 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC7924A4C03400B73349 /* SceneDelegate.swift */; };
-		4488EC7C24A4C03400B73349 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC7B24A4C03400B73349 /* ViewController.swift */; };
+		4488EC7C24A4C03400B73349 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488EC7B24A4C03400B73349 /* MainViewController.swift */; };
 		4488EC8124A4C03600B73349 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4488EC8024A4C03600B73349 /* Assets.xcassets */; };
 		4488EC8424A4C03600B73349 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4488EC8224A4C03600B73349 /* LaunchScreen.storyboard */; };
+		4488EC8D24A4CC0100B73349 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4488EC8C24A4CC0100B73349 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4488EC7424A4C03400B73349 /* TestHotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4488EC7724A4C03400B73349 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4488EC7924A4C03400B73349 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4488EC7B24A4C03400B73349 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4488EC7B24A4C03400B73349 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4488EC8024A4C03600B73349 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4488EC8324A4C03600B73349 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4488EC8524A4C03600B73349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4488EC8D24A4CC0100B73349 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +58,7 @@
 			children = (
 				4488EC7724A4C03400B73349 /* AppDelegate.swift */,
 				4488EC7924A4C03400B73349 /* SceneDelegate.swift */,
-				4488EC7B24A4C03400B73349 /* ViewController.swift */,
+				4488EC7B24A4C03400B73349 /* MainViewController.swift */,
 				4488EC8024A4C03600B73349 /* Assets.xcassets */,
 				4488EC8224A4C03600B73349 /* LaunchScreen.storyboard */,
 				4488EC8524A4C03600B73349 /* Info.plist */,
@@ -80,6 +82,9 @@
 			dependencies = (
 			);
 			name = TestHotels;
+			packageProductDependencies = (
+				4488EC8C24A4CC0100B73349 /* SnapKit */,
+			);
 			productName = TestHotels;
 			productReference = 4488EC7424A4C03400B73349 /* TestHotels.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +113,9 @@
 				Base,
 			);
 			mainGroup = 4488EC6B24A4C03400B73349;
+			packageReferences = (
+				4488EC8B24A4CC0100B73349 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 4488EC7524A4C03400B73349 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4488EC7C24A4C03400B73349 /* ViewController.swift in Sources */,
+				4488EC7C24A4C03400B73349 /* MainViewController.swift in Sources */,
 				4488EC7824A4C03400B73349 /* AppDelegate.swift in Sources */,
 				4488EC7A24A4C03400B73349 /* SceneDelegate.swift in Sources */,
 			);
@@ -328,6 +336,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4488EC8B24A4CC0100B73349 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4488EC8C24A4CC0100B73349 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4488EC8B24A4CC0100B73349 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4488EC6C24A4C03400B73349 /* Project object */;
 }
