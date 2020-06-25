@@ -14,7 +14,7 @@ class MainView: UIView {
     var switchControl: UISwitch!
     var switchLeftLabel: UILabel!
     var switchRightLabel: UILabel!
-//    var tableView: UITableView!
+    var tableView: UITableView!
 
     init() {
         super.init(frame: .zero)
@@ -55,6 +55,12 @@ class MainView: UIView {
         { make in
             make.centerY.equalTo(switchControl)
             make.leading.equalTo(switchControl.trailing).offset(10)
+        }
+
+        tableView = layout(UITableView())
+        { make in
+            make.top.equalTo(switchControl.bottom).offset(10)
+            make.leading.trailing.bottom.equalTo(safeArea)
         }
     }
 
