@@ -48,11 +48,20 @@ class NetworkManager {
             let url = try makeURL()
             print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print(jsonString)
-                    }
+                guard let data = data else {
+                    return
                 }
+
+                do {
+                    let decoder = JSONDecoder()
+                    let result: [Hotel] = try decoder.decode(
+                        [Hotel].self,
+                        from: data)
+                    print(result)
+                } catch {
+                    print("decoding failed")
+                }
+
             }.resume()
         } catch let error {
             print(error.localizedDescription)
