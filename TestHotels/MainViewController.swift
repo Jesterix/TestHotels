@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
 
     var mainView: MainView!
     var hotels: [String] = ["1", "2", "3", "4"]
-    var dataSourse = NetworkManager()
+    var networkManager = NetworkManager()
 
     override func loadView() {
         mainView = MainView()
@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        dataSourse.getHotelListData()
+        networkManager.getHotelListData()
     }
 }
 
