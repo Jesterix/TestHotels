@@ -14,6 +14,8 @@ final class MainViewController: UIViewController {
     var hotels: [Hotel] = []
     var networkManager = NetworkManager()
 
+    let reuseID = "hotelCell"
+
     override func loadView() {
         mainView = MainView()
         self.view = mainView
@@ -23,6 +25,10 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
+        mainView.tableView.register(
+            HotelCell.self,
+            forCellReuseIdentifier: reuseID)
+
         loadData()
     }
 
@@ -58,8 +64,17 @@ extension MainViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = hotels[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: reuseID) as? HotelCell else
+        {
+            fatalError("invalid cell type")
+        }
+
+        cell.name.text = hotels[indexPath.row].name
+        cell.stars.text = "Stars: " + String(hotels[indexPath.row].stars)
+        cell.suitesAvailable.text =
+        "Available suites: \(hotels[indexPath.row].suitesAvailability.count)"
+
         return cell
     }
 }
