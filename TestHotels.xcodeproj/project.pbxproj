@@ -49,6 +49,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4457790F24A645E500336588 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4457790924A4ED0700336588 /* Hotel.swift */,
+				4457790B24A4F68B00336588 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4457791024A645FF00336588 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4488EC9224A4D1D000B73349 /* Extensions.swift */,
+				4488EC9024A4CF4A00B73349 /* UIView+SnapKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4457791124A6462500336588 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4488EC7B24A4C03400B73349 /* MainViewController.swift */,
+				4488EC8E24A4CD3800B73349 /* MainView.swift */,
+				4457790D24A63F2E00336588 /* HotelCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		4488EC6B24A4C03400B73349 = {
 			isa = PBXGroup;
 			children = (
@@ -70,13 +98,9 @@
 			children = (
 				4488EC7724A4C03400B73349 /* AppDelegate.swift */,
 				4488EC7924A4C03400B73349 /* SceneDelegate.swift */,
-				4488EC7B24A4C03400B73349 /* MainViewController.swift */,
-				4457790924A4ED0700336588 /* Hotel.swift */,
-				4457790B24A4F68B00336588 /* NetworkManager.swift */,
-				4488EC8E24A4CD3800B73349 /* MainView.swift */,
-				4457790D24A63F2E00336588 /* HotelCell.swift */,
-				4488EC9224A4D1D000B73349 /* Extensions.swift */,
-				4488EC9024A4CF4A00B73349 /* UIView+SnapKit.swift */,
+				4457791124A6462500336588 /* Main */,
+				4457790F24A645E500336588 /* Network */,
+				4457791024A645FF00336588 /* Extensions */,
 				4488EC8024A4C03600B73349 /* Assets.xcassets */,
 				4488EC8224A4C03600B73349 /* LaunchScreen.storyboard */,
 				4488EC8524A4C03600B73349 /* Info.plist */,
