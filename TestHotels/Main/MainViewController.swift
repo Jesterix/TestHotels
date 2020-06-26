@@ -87,7 +87,7 @@ extension MainViewController: UITableViewDataSource {
         }
 
         cell.name.text = hotels[indexPath.row].name
-        cell.stars.text = "Stars: " + String(hotels[indexPath.row].stars)
+        cell.distance.text = "Distance from center: " + String(hotels[indexPath.row].distance)
         cell.suitesAvailable.text =
         "Available suites: \(hotels[indexPath.row].suitesAvailability.count)"
 

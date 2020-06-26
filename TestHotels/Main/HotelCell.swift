@@ -20,7 +20,7 @@ class HotelCell: UITableViewCell {
     }
 
     var name: UILabel!
-    var stars: UILabel!
+    var distance: UILabel!
     var suitesAvailable: UILabel!
 
     private func layoutContent(in view: UIView) {
@@ -31,7 +31,7 @@ class HotelCell: UITableViewCell {
             make.trailing.equalTo(safeArea).offset(-10)
         }
 
-        stars = view.layout(UILabel())
+        distance = view.layout(UILabel())
         { make in
             make.top.equalTo(name.bottom).offset(5)
             make.leading.equalTo(name)
@@ -41,14 +41,14 @@ class HotelCell: UITableViewCell {
         { make in
             make.top.equalTo(name.bottom).offset(5)
             make.trailing.equalTo(name)
-            make.leading.greaterThanOrEqualTo(stars.trailing).offset(5)
+            make.leading.greaterThanOrEqualTo(distance.trailing).offset(5)
             make.bottom.equalTo(safeArea).offset(-5)
         }
     }
 
     private func applyStyle() {
         name.numberOfLines = 0
-        stars.font = .systemFont(ofSize: 13)
+        distance.font = .systemFont(ofSize: 13)
         suitesAvailable.font = .systemFont(ofSize: 13)
     }
 }
