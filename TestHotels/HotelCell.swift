@@ -28,24 +28,28 @@ class HotelCell: UITableViewCell {
         { make in
             make.leading.equalTo(safeArea).offset(10)
             make.top.equalTo(safeArea).offset(5)
-            make.trailing.equalTo(safeArea).offset(10)
+            make.trailing.equalTo(safeArea).offset(-10)
         }
 
         stars = view.layout(UILabel())
         { make in
             make.top.equalTo(name.bottom).offset(5)
-            make.leading.trailing.equalTo(name)
+            make.leading.equalTo(name)
         }
 
         suitesAvailable = view.layout(UILabel())
         { make in
-            make.top.equalTo(stars.bottom).offset(5)
-            make.leading.trailing.equalTo(name)
+            make.top.equalTo(name.bottom).offset(5)
+            make.trailing.equalTo(name)
+            make.leading.greaterThanOrEqualTo(stars.trailing).offset(5)
+            make.bottom.equalTo(safeArea).offset(-5)
         }
     }
 
     private func applyStyle() {
         name.numberOfLines = 0
+        stars.font = .systemFont(ofSize: 13)
+        suitesAvailable.font = .systemFont(ofSize: 13)
     }
 }
 
