@@ -38,8 +38,7 @@ class NetworkManager {
             throw URLError.invalidURL
         }
 
-        url.appendPathComponent(object)
-        url.appendPathComponent(dataType.rawValue)
+        url.appendPathComponent(object + dataType.rawValue)
 
         return url
     }
@@ -47,6 +46,7 @@ class NetworkManager {
     func getHotelListData() {
         do {
             let url = try makeURL()
+            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     if let jsonString = String(data: data, encoding: .utf8) {
