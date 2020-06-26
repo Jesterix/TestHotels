@@ -30,6 +30,11 @@ final class MainViewController: UIViewController {
             forCellReuseIdentifier: reuseID)
 
         loadData()
+
+        mainView.switchControl.addTarget(
+            self,
+            action: #selector(sortHotels),
+            for: .valueChanged)
     }
 
     func loadData() {
@@ -44,6 +49,17 @@ final class MainViewController: UIViewController {
                 }
             }
         }
+    }
+
+    @objc func sortHotels() {
+        if mainView.switchControl.isOn {
+            hotels.sort
+                { $0.suitesAvailability.count < $1.suitesAvailability.count }
+        } else {
+            hotels.sort
+                { $0.distance < $1.distance }
+        }
+        mainView.tableView.reloadData()
     }
 }
 
