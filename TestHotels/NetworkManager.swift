@@ -43,12 +43,15 @@ class NetworkManager {
         return url
     }
 
-    func getHotelListData() {
+    func getHotelListData(
+        completion: @escaping (Result<[Hotel], Error>) -> Void) {
+
         do {
             let url = try makeURL()
             print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
+                    completion(.failure(RequestError.invalidData))
                     return
                 }
 
@@ -58,13 +61,26 @@ class NetworkManager {
                         [Hotel].self,
                         from: data)
                     print(result)
+                    completion(.success(result))
                 } catch {
-                    print("decoding failed")
+                    completion(.failure(RequestError.invalidJson))
                 }
 
             }.resume()
         } catch let error {
-            print(error.localizedDescription)
+            completion(.failure(error))
+        }
+    }
+}
+
+enum RequestError: Swift.Error, CustomStringConvertible {
+    case invalidData
+    case invalidJson
+
+    public var description: String {
+        switch self {
+        case .invalidData: return "invalid data"
+        case .invalidJson: return "invalid json"
         }
     }
 }
