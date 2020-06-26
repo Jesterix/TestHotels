@@ -11,7 +11,7 @@ import UIKit
 final class MainViewController: UIViewController {
 
     var mainView: MainView!
-    var hotels: [String] = ["1", "2", "3", "4"]
+    var hotels: [Hotel] = []
     var networkManager = NetworkManager()
 
     override func loadView() {
@@ -23,7 +23,21 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
-        networkManager.getHotelListData()
+        loadData()
+    }
+
+    func loadData() {
+        networkManager.getHotelListData { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    self.hotels = response
+                    self.mainView.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 
@@ -45,7 +59,7 @@ extension MainViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell()
-        cell.textLabel?.text = hotels[indexPath.row]
+        cell.textLabel?.text = hotels[indexPath.row].name
         return cell
     }
 }
