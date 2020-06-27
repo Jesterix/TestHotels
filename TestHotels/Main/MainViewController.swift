@@ -72,20 +72,21 @@ final class MainViewController: UIViewController {
             }
         }
     }
-//TODO without return
-    func loadImage(imageName: String) -> UIImage {
-        var image = UIImage()
+
+    func loadImage(
+        imageName: String,
+        completion: @escaping (UIImage) -> Void)
+    {
         networkManager.getHotelImage(imageName: imageName) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    image = response
+                    completion(response)
                 case .failure(let error):
                     print(error)
                 }
             }
         }
-        return image
     }
 
     @objc func sortHotels() {
@@ -140,12 +141,19 @@ extension MainViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         loadDetails(for: String(self.hotels[indexPath.row].id)) { details in
-            self.navigationController?.pushViewController(
+            guard let name = details.imageName else {
+                return
+            }
+
+            self.loadImage(
+            imageName: name) { image in
+                self.navigationController?.pushViewController(
                 DetailViewController(
                     hotel: self.hotels[indexPath.row],
                     details: details,
-                    image: UIImage()),
+                    image: image),
                 animated: true)
+            }
         }
     }
 }
