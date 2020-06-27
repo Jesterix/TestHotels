@@ -75,12 +75,20 @@
 			isa = PBXGroup;
 			children = (
 				4488EC7B24A4C03400B73349 /* MainViewController.swift */,
-				4457791424A73DFB00336588 /* DetailView.swift */,
-				4457791224A73D8000336588 /* DetailViewController.swift */,
 				4488EC8E24A4CD3800B73349 /* MainView.swift */,
 				4457790D24A63F2E00336588 /* HotelCell.swift */,
+				4457791624A73E8400336588 /* Detail */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4457791624A73E8400336588 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4457791424A73DFB00336588 /* DetailView.swift */,
+				4457791224A73D8000336588 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		4488EC6B24A4C03400B73349 = {
