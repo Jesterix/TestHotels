@@ -85,9 +85,15 @@ final class DetailView: UIView {
 
     private func applyStyle() {
         backgroundColor = .white
-        nameLabel.numberOfLines = 0
+
         imageView.contentMode = .scaleAspectFill
-        suitesAvailableLabel.numberOfLines = 0
+        nameLabel.textAlignment = .center
+
+        [nameLabel,
+         addressLabel,
+         suitesAvailableLabel].forEach { item in
+            item?.numberOfLines = 0
+        }
 
         [addressLabel,
          lattitudeLabel,
