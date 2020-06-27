@@ -107,10 +107,9 @@ extension MainViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: false)
-        print("row \(indexPath.row)")
 
         navigationController?.pushViewController(
-            DetailViewController(),
+            DetailViewController(hotel: hotels[indexPath.row]),
             animated: true)
     }
 }
