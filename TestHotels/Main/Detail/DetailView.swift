@@ -10,6 +10,13 @@ import UIKit
 
 final class DetailView: UIView {
     var nameLabel: UILabel!
+    var imageView: UIImageView!
+    var addressLabel: UILabel!
+    var lattitudeLabel: UILabel!
+    var longtitudeLabel: UILabel!
+    var distanceLabel: UILabel!
+    var starsLabel: UILabel!
+    var suitesAvailableLabel: UILabel!
 
     init() {
         super.init(frame: .zero)
@@ -22,16 +29,74 @@ final class DetailView: UIView {
     }
 
     private func layoutContent(in view: UIView) {
-        nameLabel = layout(UILabel(text: "TEsT"))
+        nameLabel = layout(UILabel())
         { make in
             make.top.equalTo(safeArea).offset(10)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
             make.centerX.equalToSuperview()
+        }
+
+        imageView = layout(UIImageView(image: UIImage()))
+        { make in
+            make.top.equalTo(nameLabel.bottom).offset(5)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(4)
+        }
+
+        addressLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(imageView.bottom).offset(10)
+            make.leading.equalTo(nameLabel)
+            make.trailing.equalTo(nameLabel)
+        }
+
+        lattitudeLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(addressLabel.bottom).offset(5)
+            make.leading.equalTo(nameLabel)
+        }
+
+        longtitudeLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(lattitudeLabel.bottom).offset(5)
+            make.leading.equalTo(nameLabel)
+        }
+
+        distanceLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(longtitudeLabel.bottom).offset(5)
+            make.leading.equalTo(nameLabel)
+        }
+
+        starsLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(longtitudeLabel.bottom).offset(5)
+            make.leading.greaterThanOrEqualTo(distanceLabel.trailing).offset(5)
+            make.trailing.equalTo(nameLabel)
+        }
+
+        suitesAvailableLabel = layout(UILabel())
+        { make in
+            make.top.equalTo(distanceLabel.bottom).offset(5)
+            make.leading.trailing.equalTo(nameLabel)
         }
     }
 
     private func applyStyle() {
         backgroundColor = .white
         nameLabel.numberOfLines = 0
+        imageView.contentMode = .scaleAspectFill
+        suitesAvailableLabel.numberOfLines = 0
+
+        [addressLabel,
+         lattitudeLabel,
+         longtitudeLabel,
+         distanceLabel,
+         starsLabel,
+         suitesAvailableLabel].forEach { item in
+            item?.font = .systemFont(ofSize: 13)
+        }
     }
 }
 
