@@ -15,6 +15,7 @@ final class MainView: UIView {
     var switchLeftLabel: UILabel!
     var switchRightLabel: UILabel!
     var tableView: UITableView!
+    var activityIndicator: UIActivityIndicatorView!
 
     init() {
         super.init(frame: .zero)
@@ -62,6 +63,11 @@ final class MainView: UIView {
             make.top.equalTo(switchControl.bottom).offset(10)
             make.leading.trailing.bottom.equalTo(safeArea)
         }
+
+        activityIndicator = layout(UIActivityIndicatorView())
+        { make in
+            make.center.equalToSuperview()
+        }
     }
 
     private func applyStyle() {
@@ -69,5 +75,6 @@ final class MainView: UIView {
         sortedLabel.font = .systemFont(ofSize: 13)
         switchLeftLabel.font = .systemFont(ofSize: 13)
         switchRightLabel.font = .systemFont(ofSize: 13)
+        activityIndicator.style = .gray
     }
 }

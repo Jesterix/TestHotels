@@ -38,8 +38,10 @@ final class MainViewController: UIViewController {
     }
 
     func loadData() {
+        mainView.activityIndicator.startAnimating()
         networkManager.getHotelListData { result in
             DispatchQueue.main.async {
+                self.mainView.activityIndicator.stopAnimating()
                 switch result {
                 case .success(let response):
                     self.hotels = response
