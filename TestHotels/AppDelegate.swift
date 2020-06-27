@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if #available(iOS 13, *) {
         } else {
+            let navigationController = UINavigationController(
+                rootViewController: MainViewController())
             window = UIWindow(frame: UIScreen.main.bounds)
-            let viewController = MainViewController()
-            window?.rootViewController = viewController
+            window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
         }
 

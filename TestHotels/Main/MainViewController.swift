@@ -104,6 +104,10 @@ extension MainViewController: UITableViewDelegate {
     {
         tableView.deselectRow(at: indexPath, animated: false)
         print("row \(indexPath.row)")
+
+        navigationController?.pushViewController(
+            DetailViewController(),
+            animated: true)
     }
 }
 
