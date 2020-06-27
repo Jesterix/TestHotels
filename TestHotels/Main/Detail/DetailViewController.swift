@@ -31,6 +31,14 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         detailView.nameLabel.text = hotel.name
+        detailView.addressLabel.text = "Address: " + hotel.address
+        detailView.lattitudeLabel.text = "Lattitude: Not yet"
+        detailView.longtitudeLabel.text = "Longtitude: Nope"
+        detailView.distanceLabel.text =
+            "Distance from center: " + String(hotel.distance)
+        detailView.starsLabel.text = "⭐️: " + String(hotel.stars)
+        detailView.suitesAvailableLabel.text = "Suites available: " +
+            hotel.suitesAvailability.joined(separator: ", ")
     }
 
     override func viewWillAppear(_ animated: Bool) {
