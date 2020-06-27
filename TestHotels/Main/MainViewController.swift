@@ -57,6 +57,37 @@ final class MainViewController: UIViewController {
         }
     }
 
+    func loadDetails(
+        for id: String,
+        completion: @escaping (HotelDetails) -> Void)
+    {
+        networkManager.getHotelDetails(for: id) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    completion(response)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+//TODO without return
+    func loadImage(imageName: String) -> UIImage {
+        var image = UIImage()
+        networkManager.getHotelImage(imageName: imageName) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    image = response
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        return image
+    }
+
     @objc func sortHotels() {
         if mainView.switchControl.isOn {
             hotels.sort
@@ -108,9 +139,14 @@ extension MainViewController: UITableViewDelegate {
     {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        navigationController?.pushViewController(
-            DetailViewController(hotel: hotels[indexPath.row]),
-            animated: true)
+        loadDetails(for: String(self.hotels[indexPath.row].id)) { details in
+            self.navigationController?.pushViewController(
+                DetailViewController(
+                    hotel: self.hotels[indexPath.row],
+                    details: details,
+                    image: UIImage()),
+                animated: true)
+        }
     }
 }
 

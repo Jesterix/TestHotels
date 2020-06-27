@@ -12,9 +12,13 @@ final class DetailViewController: UIViewController {
     var detailView: DetailView!
 
     var hotel: Hotel
+    var hotelDetails: HotelDetails
+    var hotelImage: UIImage
 
-    init(hotel: Hotel) {
+    init(hotel: Hotel, details: HotelDetails, image: UIImage) {
         self.hotel = hotel
+        self.hotelDetails = details
+        self.hotelImage = image
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,9 +35,10 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         detailView.nameLabel.text = hotel.name
+        detailView.imageView.image = hotelImage
         detailView.addressLabel.text = "Address: " + hotel.address
-        detailView.lattitudeLabel.text = "Lattitude: Not yet"
-        detailView.longtitudeLabel.text = "Longtitude: Nope"
+        detailView.lattitudeLabel.text = "Lattitude: \(hotelDetails.lat)"
+        detailView.longtitudeLabel.text = "Longtitude: \(hotelDetails.lon)"
         detailView.distanceLabel.text =
             "Distance from center: " + String(hotel.distance)
         detailView.starsLabel.text = "⭐️: " + String(hotel.stars)
