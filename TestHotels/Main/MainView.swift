@@ -9,7 +9,7 @@
 import UIKit
 
 final class MainView: UIView {
-    var titleLable: UILabel!
+    var titleLabel: UILabel!
     var sortedLabel: UILabel!
     var switchControl: UISwitch!
     var switchLeftLabel: UILabel!
@@ -28,7 +28,7 @@ final class MainView: UIView {
     }
 
     private func layoutContent(in view: UIView) {
-        titleLable = layout(UILabel(text: "Hotel List"))
+        titleLabel = layout(UILabel(text: "Hotel List"))
         { make in
             make.top.equalTo(safeArea).offset(20)
             make.centerX.equalToSuperview()
@@ -36,7 +36,7 @@ final class MainView: UIView {
 
         sortedLabel = layout(UILabel(text: "sorted by:"))
         { make in
-            make.top.equalTo(titleLable.bottom).offset(20)
+            make.top.equalTo(titleLabel.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
 

@@ -92,9 +92,9 @@ extension MainViewController: UITableViewDataSource {
             fatalError("invalid cell type")
         }
 
-        cell.name.text = hotels[indexPath.row].name
-        cell.distance.text = "Distance from center: " + String(hotels[indexPath.row].distance)
-        cell.suitesAvailable.text =
+        cell.nameLabel.text = hotels[indexPath.row].name
+        cell.distanceLabel.text = "Distance from center: " + String(hotels[indexPath.row].distance)
+        cell.suitesAvailableLabel.text =
         "Available suites: \(hotels[indexPath.row].suitesAvailability.count)"
 
         return cell

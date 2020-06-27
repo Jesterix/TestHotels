@@ -19,37 +19,37 @@ class HotelCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var name: UILabel!
-    var distance: UILabel!
-    var suitesAvailable: UILabel!
+    var nameLabel: UILabel!
+    var distanceLabel: UILabel!
+    var suitesAvailableLabel: UILabel!
 
     private func layoutContent(in view: UIView) {
-        name = view.layout(UILabel())
+        nameLabel = view.layout(UILabel())
         { make in
             make.leading.equalTo(safeArea).offset(10)
             make.top.equalTo(safeArea).offset(5)
             make.trailing.equalTo(safeArea).offset(-10)
         }
 
-        distance = view.layout(UILabel())
+        distanceLabel = view.layout(UILabel())
         { make in
-            make.top.equalTo(name.bottom).offset(5)
-            make.leading.equalTo(name)
+            make.top.equalTo(nameLabel.bottom).offset(5)
+            make.leading.equalTo(nameLabel)
         }
 
-        suitesAvailable = view.layout(UILabel())
+        suitesAvailableLabel = view.layout(UILabel())
         { make in
-            make.top.equalTo(name.bottom).offset(5)
-            make.trailing.equalTo(name)
-            make.leading.greaterThanOrEqualTo(distance.trailing).offset(5)
+            make.top.equalTo(nameLabel.bottom).offset(5)
+            make.trailing.equalTo(nameLabel)
+            make.leading.greaterThanOrEqualTo(distanceLabel.trailing).offset(5)
             make.bottom.equalTo(safeArea).offset(-5)
         }
     }
 
     private func applyStyle() {
-        name.numberOfLines = 0
-        distance.font = .systemFont(ofSize: 13)
-        suitesAvailable.font = .systemFont(ofSize: 13)
+        nameLabel.numberOfLines = 0
+        distanceLabel.font = .systemFont(ofSize: 13)
+        suitesAvailableLabel.font = .systemFont(ofSize: 13)
     }
 }
 
