@@ -7,7 +7,7 @@
 //
 
 struct HotelDetails: Codable {
-    let imageName: String
+    let imageName: String?
     let lat: Double
     let lon: Double
 
@@ -21,10 +21,12 @@ struct HotelDetails: Codable {
         lat = try container.decode(Double.self, forKey: .lat)
         lon = try container.decode(Double.self, forKey: .lon)
 
-        let imageNameFull = try container.decode(
-            String.self,
-            forKey: .imageName)
+        let imageNameFull = try container.decode(String?.self, forKey: .imageName)
 
-        imageName = String(imageNameFull.split(separator: ".")[0])
+        guard let name = imageNameFull, name.count > 0 else {
+            imageName = nil
+            return
+        }
+        imageName = String(name.split(separator: ".")[0])
     }
 }
