@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     var baseURL = URL(string: "https://raw.githubusercontent.com/iMofas/ios-android-test/master")
@@ -71,16 +72,76 @@ class NetworkManager {
             completion(.failure(error))
         }
     }
+
+    func getHotelDetails(
+        for id: String,
+        completion: @escaping (Result<HotelDetails, Error>) -> Void) {
+
+        do {
+            let url = try makeURL(
+                for: id,
+                dataType: .json)
+            print(url)
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data else {
+                    completion(.failure(RequestError.invalidData))
+                    return
+                }
+
+                do {
+                    let decoder = JSONDecoder()
+                    let result: HotelDetails = try decoder.decode(
+                        HotelDetails.self,
+                        from: data)
+                    print(result)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(RequestError.invalidJson))
+                }
+
+            }.resume()
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+
+    func getHotelImage(
+        imageName: String,
+        completion: @escaping (Result<UIImage, Error>) -> Void) {
+
+        do {
+            let url = try makeURL(
+                for: imageName,
+                dataType: .jpg)
+            print(url)
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data else {
+                    completion(.failure(RequestError.invalidData))
+                    return
+                }
+                guard let image = UIImage(data: data) else {
+                    completion(.failure(RequestError.invalidImage))
+                    return
+                }
+                completion(.success(image))
+
+            }.resume()
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
 }
 
 enum RequestError: Swift.Error, CustomStringConvertible {
     case invalidData
     case invalidJson
+    case invalidImage
 
     public var description: String {
         switch self {
         case .invalidData: return "invalid data"
         case .invalidJson: return "invalid json"
+        case .invalidImage: return "invalid image"
         }
     }
 }
