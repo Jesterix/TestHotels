@@ -37,6 +37,10 @@ final class MainViewController: UIViewController {
             for: .valueChanged)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+
     func loadData() {
         mainView.activityIndicator.startAnimating()
         networkManager.getHotelListData { result in
