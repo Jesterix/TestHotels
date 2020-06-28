@@ -37,9 +37,15 @@ final class DetailView: UIView {
             make.centerX.equalToSuperview()
         }
 
-        imageView = layout(UIImageView(image: UIImage()))
+        starsLabel = layout(UILabel())
         { make in
             make.top.equalTo(nameLabel.bottom).offset(5)
+            make.centerX.equalToSuperview()
+        }
+
+        imageView = layout(UIImageView(image: UIImage()))
+        { make in
+            make.top.equalTo(starsLabel.bottom).offset(5)
             make.leading.trailing.equalToSuperview()
             make.height.equalToSuperview().dividedBy(4)
         }
@@ -69,13 +75,6 @@ final class DetailView: UIView {
             make.leading.equalTo(nameLabel)
         }
 
-        starsLabel = layout(UILabel())
-        { make in
-            make.top.equalTo(longtitudeLabel.bottom).offset(5)
-            make.leading.greaterThanOrEqualTo(distanceLabel.trailing).offset(5)
-            make.trailing.equalTo(nameLabel)
-        }
-
         suitesAvailableLabel = layout(UILabel())
         { make in
             make.top.equalTo(distanceLabel.bottom).offset(5)
@@ -88,6 +87,7 @@ final class DetailView: UIView {
 
         imageView.contentMode = .scaleAspectFit
         nameLabel.textAlignment = .center
+        starsLabel.textAlignment = .center
 
         [nameLabel,
          addressLabel,
