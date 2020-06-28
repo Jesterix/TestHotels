@@ -49,7 +49,6 @@ class NetworkManager {
 
         do {
             let url = try makeURL()
-            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     completion(.failure(RequestError.invalidData))
@@ -61,7 +60,6 @@ class NetworkManager {
                     let result: [Hotel] = try decoder.decode(
                         [Hotel].self,
                         from: data)
-                    print(result)
                     completion(.success(result))
                 } catch {
                     completion(.failure(RequestError.invalidJson))
@@ -81,7 +79,6 @@ class NetworkManager {
             let url = try makeURL(
                 for: id,
                 dataType: .json)
-            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     completion(.failure(RequestError.invalidData))
@@ -93,7 +90,6 @@ class NetworkManager {
                     let result: HotelDetails = try decoder.decode(
                         HotelDetails.self,
                         from: data)
-                    print(result)
                     completion(.success(result))
                 } catch {
                     completion(.failure(RequestError.invalidJson))
@@ -113,7 +109,6 @@ class NetworkManager {
             let url = try makeURL(
                 for: imageName,
                 dataType: .jpg)
-            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     completion(.failure(RequestError.invalidData))
