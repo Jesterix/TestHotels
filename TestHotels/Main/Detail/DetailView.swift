@@ -86,7 +86,7 @@ final class DetailView: UIView {
     private func applyStyle() {
         backgroundColor = .white
 
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         nameLabel.textAlignment = .center
 
         [nameLabel,
@@ -106,14 +106,3 @@ final class DetailView: UIView {
     }
 }
 
-//{
-//    "id": 80899,
-//    "name": "Americana Inn",
-//    "address": "69 West 38th Street",
-//    "stars": 2.0,
-//    "distance": 99.9,
-//    "image": "3.jpg",
-//    "suites_availability": "5:8:32:54",
-//    "lat": 40.75211500000000,
-//    "lon": -73.98545100000000
-//}

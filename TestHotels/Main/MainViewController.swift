@@ -154,12 +154,11 @@ extension MainViewController: UITableViewDelegate {
 
             self.loadImage(
             imageName: name) { image in
-                print(image)
                 self.navigationController?.pushViewController(
                 DetailViewController(
                     hotel: self.hotels[indexPath.row],
                     details: details,
-                    image: image),
+                    image: image.imageWithoutBorder(width: 1) ?? image),
                 animated: true)
             }
         }
