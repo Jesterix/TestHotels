@@ -32,6 +32,8 @@ struct Hotel: Codable {
             String.self,
             forKey: .suitesAvailability)
 
-        suitesAvailability = suitesAvailabilityString.split(separator: ":", omittingEmptySubsequences: true).map { String($0) }
+        suitesAvailability = suitesAvailabilityString.split(
+            separator: ":",
+            omittingEmptySubsequences: true).map { String($0) }
     }
 }

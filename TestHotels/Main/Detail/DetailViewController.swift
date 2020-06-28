@@ -15,7 +15,11 @@ final class DetailViewController: UIViewController {
     var hotelDetails: HotelDetails
     var hotelImage: UIImage
 
-    init(hotel: Hotel, details: HotelDetails, image: UIImage) {
+    init(
+        hotel: Hotel,
+        details: HotelDetails,
+        image: UIImage)
+    {
         self.hotel = hotel
         self.hotelDetails = details
         self.hotelImage = image

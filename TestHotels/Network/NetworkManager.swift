@@ -66,8 +66,8 @@ class NetworkManager {
     }
 
     func getHotelListData(
-        completion: @escaping (Result<[Hotel], Error>) -> Void) {
-
+        completion: @escaping (Result<[Hotel], Error>) -> Void)
+    {
         do {
             let url = try makeURL()
             getJSON(url: url) { (result: Result<[Hotel], Error>) in
@@ -80,8 +80,8 @@ class NetworkManager {
 
     func getHotelDetails(
         for id: String,
-        completion: @escaping (Result<HotelDetails, Error>) -> Void) {
-
+        completion: @escaping (Result<HotelDetails, Error>) -> Void)
+    {
         do {
             let url = try makeURL(
                 for: id,
@@ -96,8 +96,8 @@ class NetworkManager {
 
     func getHotelImage(
         imageName: String,
-        completion: @escaping (Result<UIImage, Error>) -> Void) {
-
+        completion: @escaping (Result<UIImage, Error>) -> Void)
+    {
         do {
             let url = try makeURL(
                 for: imageName,
