@@ -22,7 +22,7 @@ class NetworkManager {
         case invalidURL
     }
 
-    func makeURL(
+    private func makeURL(
         for object: String = "0777",
         dataType: DataType = .json) throws -> URL
     {
@@ -44,28 +44,35 @@ class NetworkManager {
         return url
     }
 
+    private func getJSON<T: Decodable> (
+        url: URL,
+        _ completion: @escaping (Result<T, Error>) -> Void)
+    {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                completion(.failure(RequestError.invalidData))
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let result: T = try decoder.decode(
+                    T.self,
+                    from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(RequestError.invalidJson))
+            }
+        }.resume()
+    }
+
     func getHotelListData(
         completion: @escaping (Result<[Hotel], Error>) -> Void) {
 
         do {
             let url = try makeURL()
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data else {
-                    completion(.failure(RequestError.invalidData))
-                    return
-                }
-
-                do {
-                    let decoder = JSONDecoder()
-                    let result: [Hotel] = try decoder.decode(
-                        [Hotel].self,
-                        from: data)
-                    completion(.success(result))
-                } catch {
-                    completion(.failure(RequestError.invalidJson))
-                }
-
-            }.resume()
+            getJSON(url: url) { (result: Result<[Hotel], Error>) in
+                completion(result)
+            }
         } catch let error {
             completion(.failure(error))
         }
@@ -79,23 +86,9 @@ class NetworkManager {
             let url = try makeURL(
                 for: id,
                 dataType: .json)
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data else {
-                    completion(.failure(RequestError.invalidData))
-                    return
-                }
-
-                do {
-                    let decoder = JSONDecoder()
-                    let result: HotelDetails = try decoder.decode(
-                        HotelDetails.self,
-                        from: data)
-                    completion(.success(result))
-                } catch {
-                    completion(.failure(RequestError.invalidJson))
-                }
-
-            }.resume()
+            getJSON(url: url) { (result: Result<HotelDetails, Error>) in
+                completion(result)
+            }
         } catch let error {
             completion(.failure(error))
         }
