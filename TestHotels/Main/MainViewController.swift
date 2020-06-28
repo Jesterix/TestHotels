@@ -83,6 +83,7 @@ final class MainViewController: UIViewController {
                 case .success(let response):
                     completion(response)
                 case .failure(let error):
+                    completion(UIImage())
                     print(error)
                 }
             }
@@ -142,11 +143,18 @@ extension MainViewController: UITableViewDelegate {
 
         loadDetails(for: String(self.hotels[indexPath.row].id)) { details in
             guard let name = details.imageName else {
+                self.navigationController?.pushViewController(
+                DetailViewController(
+                    hotel: self.hotels[indexPath.row],
+                    details: details,
+                    image: UIImage()),
+                animated: true)
                 return
             }
 
             self.loadImage(
             imageName: name) { image in
+                print(image)
                 self.navigationController?.pushViewController(
                 DetailViewController(
                     hotel: self.hotels[indexPath.row],

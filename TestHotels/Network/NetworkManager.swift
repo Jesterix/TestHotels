@@ -141,7 +141,7 @@ enum RequestError: Swift.Error, CustomStringConvertible {
         switch self {
         case .invalidData: return "invalid data"
         case .invalidJson: return "invalid json"
-        case .invalidImage: return "invalid image"
+        case .invalidImage: return "invalid or missing image"
         }
     }
 }
