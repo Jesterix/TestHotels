@@ -48,39 +48,6 @@ final class MainViewController: UIViewController {
         }
     }
 
-    func loadDetails(
-        for id: String,
-        completion: @escaping (HotelDetails) -> Void)
-    {
-        networkManager.getHotelDetails(for: id) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    completion(response)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
-    }
-
-    func loadImage(
-        imageName: String,
-        completion: @escaping (UIImage) -> Void)
-    {
-        networkManager.getHotelImage(imageName: imageName) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    completion(response)
-                case .failure(let error):
-                    completion(UIImage())
-                    print(error)
-                }
-            }
-        }
-    }
-
     @objc func sortHotels() {
         if mainView.switchControl.isOn {
             hotels.sort
