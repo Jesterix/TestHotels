@@ -131,30 +131,10 @@ extension MainViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: false)
-        mainView.activityIndicator.startAnimating()
-        loadDetails(for: String(self.hotels[indexPath.row].id)) { details in
-            guard let name = details.imageName else {
-                self.mainView.activityIndicator.stopAnimating()
-                self.navigationController?.pushViewController(
-                DetailViewController(
-                    hotel: self.hotels[indexPath.row],
-                    details: details,
-                    image: UIImage()),
-                animated: true)
-                return
-            }
 
-            self.loadImage(
-            imageName: name) { image in
-                self.mainView.activityIndicator.stopAnimating()
-                self.navigationController?.pushViewController(
-                DetailViewController(
-                    hotel: self.hotels[indexPath.row],
-                    details: details,
-                    image: image.imageWithoutBorder(width: 1) ?? image),
-                animated: true)
-            }
-        }
+        self.navigationController?.pushViewController(
+            DetailViewController(hotel: self.hotels[indexPath.row]),
+            animated: true)
     }
 }
 
