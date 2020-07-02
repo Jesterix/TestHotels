@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class NetworkManager {
-    var baseURL = URL(string: "https://raw.githubusercontent.com/iMofas/ios-android-test/master")
-    var baseImageURL = URL(string: "https://github.com/iMofas/ios-android-test/raw/master")
+    var baseURL = URL(string: "https://raw.githubusercontent.com/Jesterix/TestHotelsFiles/master")
+    var baseImageURL = URL(string: "https://github.com/Jesterix/TestHotelsFiles/raw/master")
 
     enum DataType: String {
         case json = ".json"
