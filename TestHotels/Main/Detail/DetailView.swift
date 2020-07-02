@@ -1,11 +1,3 @@
-//
-//  DetailView.swift
-//  TestHotels
-//
-//  Created by Георгий Хайденко on 27.06.2020.
-//  Copyright © 2020 George Khaydenko. All rights reserved.
-//
-
 import UIKit
 
 final class DetailView: UIView {

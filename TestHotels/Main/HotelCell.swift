@@ -1,11 +1,3 @@
-//
-//  HotelCell.swift
-//  TestHotels
-//
-//  Created by Георгий Хайденко on 26.06.2020.
-//  Copyright © 2020 George Khaydenko. All rights reserved.
-//
-
 import UIKit
 
 class HotelCell: UITableViewCell {
