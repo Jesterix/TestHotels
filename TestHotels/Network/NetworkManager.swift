@@ -2,15 +2,15 @@ import Foundation
 import UIKit
 
 class NetworkManager {
-    var baseURL = URL(string: "https://raw.githubusercontent.com/Jesterix/TestHotelsFiles/master")
-    var baseImageURL = URL(string: "https://github.com/Jesterix/TestHotelsFiles/raw/master")
+    private var baseURL = URL(string: "https://raw.githubusercontent.com/Jesterix/TestHotelsFiles/master")
+    private var baseImageURL = URL(string: "https://github.com/Jesterix/TestHotelsFiles/raw/master")
 
-    enum DataType: String {
+    private enum DataType: String {
         case json = ".json"
         case jpg = ".jpg"
     }
 
-    enum URLError: Error {
+    private enum URLError: Error {
         case invalidURL
     }
 

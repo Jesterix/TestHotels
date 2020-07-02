@@ -1,12 +1,11 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    private var mainView: MainView!
+    private var hotels: [Hotel] = []
+    private var networkManager = NetworkManager()
 
-    var mainView: MainView!
-    var hotels: [Hotel] = []
-    var networkManager = NetworkManager()
-
-    let reuseID = "hotelCell"
+    private let reuseID = "hotelCell"
 
     override func loadView() {
         mainView = MainView()

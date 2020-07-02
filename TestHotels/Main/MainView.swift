@@ -1,11 +1,11 @@
 import UIKit
 
 final class MainView: UIView {
-    var titleLabel: UILabel!
-    var sortedLabel: UILabel!
+    private var titleLabel: UILabel!
+    private var sortedLabel: UILabel!
     var switchControl: UISwitch!
-    var switchLeftLabel: UILabel!
-    var switchRightLabel: UILabel!
+    private var switchLeftLabel: UILabel!
+    private var switchRightLabel: UILabel!
     var tableView: UITableView!
     var activityIndicator: UIActivityIndicatorView!
 

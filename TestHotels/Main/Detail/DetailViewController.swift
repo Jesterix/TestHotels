@@ -1,11 +1,11 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    var detailView: DetailView!
+    private var detailView: DetailView!
 
-    var hotel: Hotel
-    var hotelDetails: HotelDetails
-    var hotelImage: UIImage
+    private var hotel: Hotel
+    private var hotelDetails: HotelDetails
+    private var hotelImage: UIImage
 
     init(
         hotel: Hotel,
