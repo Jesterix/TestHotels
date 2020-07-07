@@ -3,30 +3,30 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+  var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        if #available(iOS 13, *) {
-        } else {
-            let navigationController = UINavigationController(
-                rootViewController: MainViewController())
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        }
-
-        return true
+    if #available(iOS 13, *) {
+    } else {
+      let navigationController = UINavigationController(
+        rootViewController: MainViewController())
+      window = UIWindow(frame: UIScreen.main.bounds)
+      window?.rootViewController = navigationController
+      window?.makeKeyAndVisible()
     }
 
-    // MARK: UISceneSession Lifecycle
-@available(iOS 13.0, *)
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-    
-@available(iOS 13.0, *)
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-    }
+    return true
+  }
+
+  // MARK: UISceneSession Lifecycle
+  @available(iOS 13.0, *)
+  func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+  }
+
+  @available(iOS 13.0, *)
+  func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+  }
 }
 
