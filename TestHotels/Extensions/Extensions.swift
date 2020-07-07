@@ -1,8 +1,7 @@
 import UIKit
 
 extension UILabel {
-  convenience init(text: String = "")
-  {
+  convenience init(text: String = "") {
     self.init(frame: .zero)
     self.attributedText = .init(string: text)
   }

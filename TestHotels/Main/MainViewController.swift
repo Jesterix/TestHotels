@@ -61,26 +61,20 @@ final class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDataSource {
-  func numberOfSections(in tableView: UITableView) -> Int
-  {
-    1
-  }
-
   func tableView(
     _ tableView: UITableView,
-    numberOfRowsInSection section: Int) -> Int
-  {
+    numberOfRowsInSection section: Int
+  ) -> Int {
     hotels.count
   }
 
   func tableView(
     _ tableView: UITableView,
-    cellForRowAt indexPath: IndexPath) -> UITableViewCell
-  {
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: reuseID) as? HotelCell else
-    {
-      fatalError("invalid cell type")
+      withIdentifier: reuseID) as? HotelCell else {
+        fatalError("invalid cell type")
     }
 
     cell.nameLabel.text = hotels[indexPath.row].name
@@ -95,8 +89,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
   func tableView(
     _ tableView: UITableView,
-    didSelectRowAt indexPath: IndexPath)
-  {
+    didSelectRowAt indexPath: IndexPath
+  ) {
     tableView.deselectRow(at: indexPath, animated: false)
 
     self.navigationController?.pushViewController(

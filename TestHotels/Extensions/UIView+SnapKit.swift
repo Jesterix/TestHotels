@@ -10,8 +10,8 @@ extension UIView {
 extension UIView {
   func layout<T: UIView>(
     _ subview: T,
-    _ closure: (ConstraintMaker) -> Void) -> T
-  {
+    _ closure: (ConstraintMaker) -> Void
+  ) -> T {
     self.addSubview(subview)
     subview.snp.makeConstraints(closure)
     return subview

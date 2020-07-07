@@ -3,8 +3,8 @@ import UIKit
 class HotelCell: UITableViewCell {
   override init(
     style: UITableViewCell.CellStyle,
-    reuseIdentifier: String?)
-  {
+    reuseIdentifier: String?
+  ) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     layoutContent(in: self)
     applyStyle()
@@ -19,21 +19,18 @@ class HotelCell: UITableViewCell {
   var suitesAvailableLabel: UILabel!
   
   private func layoutContent(in view: UIView) {
-    nameLabel = view.layout(UILabel())
-    { make in
+    nameLabel = view.layout(UILabel()) { make in
       make.leading.equalTo(safeArea).offset(10)
       make.top.equalTo(safeArea).offset(5)
       make.trailing.equalTo(safeArea).offset(-10)
     }
     
-    distanceLabel = view.layout(UILabel())
-    { make in
+    distanceLabel = view.layout(UILabel()) { make in
       make.top.equalTo(nameLabel.bottom).offset(5)
       make.leading.equalTo(nameLabel)
     }
     
-    suitesAvailableLabel = view.layout(UILabel())
-    { make in
+    suitesAvailableLabel = view.layout(UILabel()) { make in
       make.top.equalTo(nameLabel.bottom).offset(5)
       make.trailing.equalTo(nameLabel)
       make.leading.greaterThanOrEqualTo(distanceLabel.trailing).offset(5)

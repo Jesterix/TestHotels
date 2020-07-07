@@ -12,8 +12,8 @@ final class DetailViewController: UIViewController {
 
   init(
     hotel: Hotel,
-    image: UIImage = UIImage())
-  {
+    image: UIImage = UIImage()
+  ) {
     self.hotel = hotel
     self.hotelImage = image
     super.init(nibName: nil, bundle: nil)
@@ -66,8 +66,8 @@ final class DetailViewController: UIViewController {
 
   private func loadDetails(
     for id: String,
-    completion: @escaping (HotelDetails) -> Void)
-  {
+    completion: @escaping (HotelDetails) -> Void
+  ) {
     networkManager.getHotelDetails(for: id) { result in
       DispatchQueue.main.async {
         switch result {
@@ -82,8 +82,8 @@ final class DetailViewController: UIViewController {
 
   private func loadImage(
     imageName: String,
-    completion: @escaping (UIImage) -> Void)
-  {
+    completion: @escaping (UIImage) -> Void
+  ) {
     networkManager.getHotelImage(imageName: imageName) { result in
       DispatchQueue.main.async {
         switch result {

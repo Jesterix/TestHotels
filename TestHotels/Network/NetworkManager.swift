@@ -16,8 +16,8 @@ class NetworkManager {
   
   private func makeURL(
     for object: String = "0777",
-    dataType: DataType = .json) throws -> URL
-  {
+    dataType: DataType = .json
+  ) throws -> URL {
     var baseUrl: URL? {
       switch dataType {
       case .json:
@@ -26,20 +26,20 @@ class NetworkManager {
         return baseImageURL
       }
     }
-    
+
     guard var url = baseUrl else {
       throw URLError.invalidURL
     }
-    
+
     url.appendPathComponent(object + dataType.rawValue)
-    
+
     return url
   }
   
   private func getJSON<T: Decodable> (
     url: URL,
-    _ completion: @escaping (Result<T, Error>) -> Void)
-  {
+    _ completion: @escaping (Result<T, Error>) -> Void
+  ) {
     URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data else {
         completion(.failure(RequestError.invalidData))
@@ -58,8 +58,8 @@ class NetworkManager {
   }
   
   func getHotelListData(
-    completion: @escaping (Result<[Hotel], Error>) -> Void)
-  {
+    completion: @escaping (Result<[Hotel], Error>) -> Void
+  ) {
     do {
       let url = try makeURL()
       getJSON(url: url) { (result: Result<[Hotel], Error>) in
@@ -72,8 +72,8 @@ class NetworkManager {
   
   func getHotelDetails(
     for id: String,
-    completion: @escaping (Result<HotelDetails, Error>) -> Void)
-  {
+    completion: @escaping (Result<HotelDetails, Error>) -> Void
+  ) {
     do {
       let url = try makeURL(
         for: id,
@@ -88,8 +88,8 @@ class NetworkManager {
   
   func getHotelImage(
     imageName: String,
-    completion: @escaping (Result<UIImage, Error>) -> Void)
-  {
+    completion: @escaping (Result<UIImage, Error>) -> Void
+  ) {
     do {
       let url = try makeURL(
         for: imageName,
